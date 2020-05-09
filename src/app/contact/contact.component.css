@@ -1,0 +1,25 @@
+.contact-button {
+  margin-right: 9px;
+}
+
+.nav-action-container {
+  margin: 20px auto;
+  width: 90%;
+}
+
+.contact-grid {
+  display: grid;
+  margin: 20px auto;
+  width: 90%;
+  height: 80vh;
+  max-height: 80vh;
+  overflow: auto;
+}
+
+.main-nav {
+  padding: 0px 5%;
+}
+
+.table {
+  height: 10%;
+}
