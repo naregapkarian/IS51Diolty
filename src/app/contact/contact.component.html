@@ -13,12 +13,21 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">Contacts <span class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Hello, {{currentUser.username}}</a>
+      </li>
+
+
+
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
         [(ngModel)]="contactParams" name="search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
-        (click)="searchContact(contactParams)">Search</button>
+      <div class="btn-group">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit"
+          (click)="searchContact(contactParams)">Search</button>
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit" (click)="logout()">Log Out</button>
+      </div>
     </form>
   </div>
 </nav>
@@ -26,13 +35,16 @@
 <ul class="nav justify-content-end nav-action-container">
   <li class="nav-item">
     <button type="button" class="btn btn-primary contact-button" (click)="loadContacts()">Load Contacts</button>
+
   </li>
   <li class="nav-item">
     <button type="button" class="btn btn-primary contact-button" (click)="saveItemsToLocalStorage(contacts)">Save
       All</button>
+
   </li>
   <li class="nav-item">
     <button type="button" class="btn btn-primary contact-button" (click)="addContact()">Add Contact</button>
+
   </li>
 </ul>
 
@@ -44,7 +56,7 @@
         <th scope="col">First Name</th>
         <th scope="col">Last Name</th>
         <th scope="col">Email</th>
-        <th scope="col">Phone</th>
+        <th scope="col">Phone Number</th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -58,6 +70,8 @@
         <td *ngIf="!contact.editing">
           <button type="button" class="btn btn-danger contact-button" (click)="deleteContact(i)">X</button>
         </td>
+
+
 
         <th *ngIf="contact.editing" scope="row">
           <input [(ngModel)]="contact.id" type="text" class="form-control" placeholder="ID" aria-label="ID"
@@ -84,8 +98,10 @@
             <button type="button" class="btn btn-success contact-button" (click)="saveContact(contact)">Save</button>
             <button type="button" class="btn btn-danger contact-button" (click)="deleteContact(i)">X</button>
           </div>
+
         </td>
       </tr>
+
     </tbody>
   </table>
 </div>
